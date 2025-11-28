@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>About - Te'chi Pempek Kecil</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
@@ -18,10 +13,8 @@
     <style>
       :root {
         --red-900: #7f1d1d;
-
         --red-700: #b91c1c;
-
-        --scroll-duration: 40s; /* Durasi gulir diperlambat agar lebih mulus */
+        --scroll-duration: 40s; /* Durasi gulir */
       }
 
       * {
@@ -30,47 +23,30 @@
 
       .custom-cursor {
         width: 20px;
-
         height: 20px;
-
         border: 2px solid #7f1d1d;
-
         border-radius: 50%;
-
         position: fixed;
-
         pointer-events: none;
-
         z-index: 9999;
-
         transition: all 0.15s ease;
-
         transition-property: background, transform, border;
       }
 
       .cursor-dot {
         width: 6px;
-
         height: 6px;
-
         background: #7f1d1d;
-
         border-radius: 50%;
-
         position: fixed;
-
         pointer-events: none;
-
         z-index: 9999;
-
         transition: all 0.1s ease;
       }
 
       .custom-cursor.hover {
         transform: scale(2);
-
         background: rgba(127, 29, 29, 0.1);
-
         border-color: #991b1b;
       }
 
@@ -79,7 +55,6 @@
         100% {
           transform: translateY(0px) rotate(0deg);
         }
-
         50% {
           transform: translateY(-20px) rotate(5deg);
         }
@@ -90,7 +65,6 @@
         100% {
           transform: translateY(0px) rotate(0deg);
         }
-
         50% {
           transform: translateY(20px) rotate(-5deg);
         }
@@ -106,77 +80,53 @@
 
       .reveal {
         opacity: 0;
-
         transform: translateY(30px);
-
         transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
       .reveal.active {
         opacity: 1;
-
         transform: translateY(0);
       }
 
       .glass {
         background: rgba(255, 255, 255, 0.7);
-
         backdrop-filter: blur(10px);
-
         -webkit-backdrop-filter: blur(10px);
-
         border: 1px solid rgba(255, 255, 255, 0.3);
       }
 
-      /* START: PERBAIKAN MARQUEE */
-
-      /* Hitungan: 8 item asli * (320px lebar item + 32px margin kanan) = 2816px. */
-
       @keyframes autoscroll {
-        from {
+        0% {
           transform: translateX(0);
         }
-
-        /* Menggeser -2816px untuk 8 item asli */
-
-        to {
-          transform: translateX(-2816px);
+        100% {
+          transform: translateX(-2112px); /* Geser sejauh lebar 6 item */
         }
       }
 
       .autoscroll-wrapper {
         overflow: hidden;
-
         width: 100%;
+        position: relative;
       }
 
       .autoscroll-container {
         display: flex;
-
         flex-wrap: nowrap;
-
+        /* Gunakan max-content agar lebar menyesuaikan jumlah item secara otomatis */
+        width: max-content;
         animation: autoscroll var(--scroll-duration) linear infinite;
-
         padding-top: 2rem;
-
         padding-bottom: 2rem;
-
-        /* Lebar kontainer: 2x lebar semua item (16 item) agar muat duplikasi */
-
-        width: calc(352px * 16);
       }
 
+      /* Bagian Pause saat Hover SUDAH DIHAPUS */
+
       .autoscroll-item {
-        /* Lebar item: 320px */
-
         width: 320px;
-
         flex-shrink: 0;
-
-        /* Margin kanan: 2rem (32px). Total lebar 352px. */
-
-        margin-right: 2rem;
-
+        margin-right: 2rem; /* 32px */
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -4px rgba(0, 0, 0, 0.1);
       }
@@ -185,7 +135,6 @@
 
       #mobile-menu {
         transition: transform 0.3s ease-in-out;
-
         transform: translateX(100%);
       }
 
@@ -210,7 +159,6 @@
 
   <body class="bg-gray-50 overflow-x-hidden">
     <div class="custom-cursor"></div>
-
     <div class="cursor-dot"></div>
 
     <nav class="glass fixed w-full top-0 z-20 shadow-lg">
@@ -226,19 +174,16 @@
               class="text-gray-800 hover:text-red-900 font-semibold text-lg transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-900 hover:after:w-full after:transition-all after:duration-300 transform hover:scale-110"
               >Home</a
             >
-
             <a
               href="index.html#filterSection"
               class="text-gray 800 hover:text-red-900 font-semibold text-lg transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-900 hover:after:w-full after:transition-all after:duration-300 transform hover:scale-110"
               >Menu</a
             >
-
             <a
               href="promo.html"
               class="text-gray-800 hover:text-red-900 font-semibold text-lg transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-900 hover:after:w-full after:transition-all after:duration-300 transform hover:scale-110"
               >Promo</a
             >
-
             <a
               href="about.html"
               class="text-red-900 hover:text-red-900 font-semibold text-lg transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-900 hover:after:w-full after:transition-all after:duration-300 transform hover:scale-110"
@@ -258,9 +203,7 @@
             class="lg:hidden text-gray-800 hover:text-red-900 transition-colors duration-300 z-40 flex flex-col gap-1.5 w-8 h-8 items-center justify-center"
           >
             <span class="hamburger-line w-6 h-0.5 bg-gray-800 block"></span>
-
             <span class="hamburger-line w-6 h-0.5 bg-gray-800 block"></span>
-
             <span class="hamburger-line w-6 h-0.5 bg-gray-800 block"></span>
           </button>
         </div>
@@ -272,33 +215,27 @@
       class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-10 p-6 pt-24 lg:hidden flex flex-col space-y-6"
     >
       <p></p>
-
       <p></p>
-
       <a
         href="index.html"
         class="text-gray-800 hover:text-red-900 font-semibold text-lg border-b border-gray-100 pb-2"
         >Home</a
       >
-
       <a
         href="index.html#filterSection"
         class="text-gray-800 hover:text-red-900 font-semibold text-lg border-b border-gray-100 pb-2"
         >Menu</a
       >
-
       <a
         href="promo.html"
         class="text-gray-800 hover:text-red-900 font-semibold text-lg border-b border-gray-100 pb-2"
         >Promo</a
       >
-
       <a
         href="about.html"
         class="text-gray-800 hover:text-red-900 font-semibold text-lg border-b border-gray-100 pb-2"
         >About</a
       >
-
       <a
         href="index.html#filterSection"
         class="mt-4 bg-gradient-to-r from-red-900 to-red-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg"
@@ -316,16 +253,13 @@
             class="inline-block bg-red-900 text-white px-6 py-3 rounded-full text-sm font-bold mb-6"
             >Tentang Kami</span
           >
-
           <h2 class="text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             <span
               class="bg-gradient-to-r from-red-900 to-orange-600 bg-clip-text text-transparent"
               >Keluarga Besar</span
             >
-
             Te'chi
           </h2>
-
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Usaha keluarga yang dijalankan dengan cinta dan dedikasi
           </p>
@@ -350,7 +284,6 @@
               <h3 class="text-3xl font-black text-gray-900 mb-4">
                 Usaha Keluarga Sejak 2010
               </h3>
-
               <p class="text-lg text-gray-700 leading-relaxed mb-6">
                 Te'chi adalah usaha keluarga yang dibangun dari kecintaan kami
                 terhadap kuliner tradisional Palembang. Setiap anggota keluarga
@@ -366,14 +299,12 @@
 
     <section class="relative py-32">
       <div class="absolute inset-0 ampera-overlay"></div>
-
       <div class="container mx-auto px-6 lg:px-12 relative z-8">
         <div class="text-center mb-8 reveal">
           <h2
             class="text-5xl lg:text-6xl font-black ampera-section-text-dark mb-6"
           >
             Apa Kata Mereka
-
             <span
               class="bg-gradient-to-r from-red-900 to-orange-600 bg-clip-text text-transparent"
               >Tentang Te'chi</span
@@ -384,38 +315,38 @@
 
       <div class="autoscroll-wrapper">
         <div class="autoscroll-container">
-         
-
           <div class="autoscroll-item bg-white rounded-3xl p-6">
             <div
               class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
             >
-              <img src="./assets/testi2.jpeg" alt="" />
+              <img
+                src="./assets/testi2.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-
             <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
               KH Syauqi MZ
             </h4>
-
             <p class="text-gray-700 text-sm leading-relaxed text-center">
               "Sudah 3 tahun jadi langganan. Kualitasnya selalu konsisten dan
               pengiriman cepat. Recommended!"
             </p>
           </div>
 
-        
-
           <div class="autoscroll-item bg-white rounded-3xl p-6">
             <div
               class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
             >
-              <img src="./assets/testi4.jpeg" alt="" />
+              <img
+                src="./assets/testi4.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-
             <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
               Ustadz Derry Sulaiman
             </h4>
-
             <p class="text-gray-700 text-sm leading-relaxed text-center">
               "Harganya terjangkau tapi rasanya premium. Pelayanannya juga ramah
               banget. Top!"
@@ -426,52 +357,53 @@
             <div
               class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
             >
-              <img src="./assets/testi5.jpeg" alt="" />
+              <img
+                src="./assets/testi5.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-
             <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
               Habib Ahmad Alhabsyi
             </h4>
-
             <p class="text-gray-700 text-sm leading-relaxed text-center">
               "Sudah 3 tahun jadi langganan. Kualitasnya selalu konsisten dan
               pengiriman cepat. Recommended!"
             </p>
           </div>
 
-
-        
-
           <div class="autoscroll-item bg-white rounded-3xl p-6">
             <div
               class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
             >
-              <img src="./assets/testi2.jpeg" alt="" />
+              <img
+                src="./assets/testi2.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-
             <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
               KH Syauqi MZ
             </h4>
-
             <p class="text-gray-700 text-sm leading-relaxed text-center">
               "Sudah 3 tahun jadi langganan. Kualitasnya selalu konsisten dan
               pengiriman cepat. Recommended!"
             </p>
           </div>
 
-         
-
           <div class="autoscroll-item bg-white rounded-3xl p-6">
             <div
               class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
             >
-              <img src="./assets/testi4.jpeg" alt="" />
+              <img
+                src="./assets/testi4.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-
             <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
               Ustadz Derry Sulaiman
             </h4>
-
             <p class="text-gray-700 text-sm leading-relaxed text-center">
               "Harganya terjangkau tapi rasanya premium. Pelayanannya juga ramah
               banget. Top!"
@@ -482,39 +414,134 @@
             <div
               class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
             >
-              <img src="./assets/testi5.jpeg" alt="" />
+              <img
+                src="./assets/testi5.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-
             <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
               Habib Ahmad Alhabsyi
             </h4>
-
             <p class="text-gray-700 text-sm leading-relaxed text-center">
               "Sudah 3 tahun jadi langganan. Kualitasnya selalu konsisten dan
               pengiriman cepat. Recommended!"
             </p>
           </div>
 
-         
+          <div class="autoscroll-item bg-white rounded-3xl p-6">
+            <div
+              class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src="./assets/testi2.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
+              KH Syauqi MZ
+            </h4>
+            <p class="text-gray-700 text-sm leading-relaxed text-center">
+              "Sudah 3 tahun jadi langganan. Kualitasnya selalu konsisten dan
+              pengiriman cepat. Recommended!"
+            </p>
+          </div>
 
           <div class="autoscroll-item bg-white rounded-3xl p-6">
             <div
               class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
             >
-              <img src="./assets/testi7.jpeg" alt="" />
+              <img
+                src="./assets/testi4.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-
             <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
-              Rudi
+              Ustadz Derry Sulaiman
             </h4>
-
             <p class="text-gray-700 text-sm leading-relaxed text-center">
               "Harganya terjangkau tapi rasanya premium. Pelayanannya juga ramah
               banget. Top!"
             </p>
-          </div
+          </div>
 
-        
+          <div class="autoscroll-item bg-white rounded-3xl p-6">
+            <div
+              class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src="./assets/testi5.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
+              Habib Ahmad Alhabsyi
+            </h4>
+            <p class="text-gray-700 text-sm leading-relaxed text-center">
+              "Sudah 3 tahun jadi langganan. Kualitasnya selalu konsisten dan
+              pengiriman cepat. Recommended!"
+            </p>
+          </div>
+
+          <div class="autoscroll-item bg-white rounded-3xl p-6">
+            <div
+              class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src="./assets/testi2.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
+              KH Syauqi MZ
+            </h4>
+            <p class="text-gray-700 text-sm leading-relaxed text-center">
+              "Sudah 3 tahun jadi langganan. Kualitasnya selalu konsisten dan
+              pengiriman cepat. Recommended!"
+            </p>
+          </div>
+
+          <div class="autoscroll-item bg-white rounded-3xl p-6">
+            <div
+              class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src="./assets/testi4.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
+              Ustadz Derry Sulaiman
+            </h4>
+            <p class="text-gray-700 text-sm leading-relaxed text-center">
+              "Harganya terjangkau tapi rasanya premium. Pelayanannya juga ramah
+              banget. Top!"
+            </p>
+          </div>
+
+          <div class="autoscroll-item bg-white rounded-3xl p-6">
+            <div
+              class="aspect-square w-full rounded-2xl mb-4 flex items-center justify-center overflow-hidden"
+            >
+              <img
+                src="./assets/testi5.jpeg"
+                alt=""
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h4 class="text-lg font-bold text-gray-900 text-center mb-3">
+              Habib Ahmad Alhabsyi
+            </h4>
+            <p class="text-gray-700 text-sm leading-relaxed text-center">
+              "Sudah 3 tahun jadi langganan. Kualitasnya selalu konsisten dan
+              pengiriman cepat. Recommended!"
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -526,16 +553,13 @@
             class="inline-block bg-red-100 text-red-900 px-6 py-3 rounded-full text-sm font-bold mb-6"
             >Nilai-Nilai Kami</span
           >
-
           <h2 class="text-5xl lg:text-6xl font-black text-gray-900 mb-6">
             Komitmen
-
             <span
               class="bg-gradient-to-r from-red-900 to-orange-600 bg-clip-text text-transparent"
               >Te'chi</span
             >
           </h2>
-
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Prinsip yang kami pegang dalam setiap produk yang kami hasilkan
           </p>
@@ -562,11 +586,9 @@
                 ></path>
               </svg>
             </div>
-
             <h3 class="text-3xl font-black text-gray-900 mb-4 text-center">
               Kualitas Terjamin
             </h3>
-
             <p class="text-lg text-gray-700 text-center leading-relaxed">
               Kami hanya menggunakan bahan baku pilihan terbaik dan proses
               produksi yang higienis untuk menjamin kualitas setiap produk.
@@ -594,11 +616,9 @@
                 ></path>
               </svg>
             </div>
-
             <h3 class="text-3xl font-black text-gray-900 mb-4 text-center">
               Dibuat dengan Cinta
             </h3>
-
             <p class="text-lg text-gray-700 text-center leading-relaxed">
               Setiap pempek dibuat dengan sepenuh hati dan perhatian terhadap
               detail, seperti menyajikan untuk keluarga sendiri.
@@ -626,11 +646,9 @@
                 ></path>
               </svg>
             </div>
-
             <h3 class="text-3xl font-black text-gray-900 mb-4 text-center">
               Layanan Cepat
             </h3>
-
             <p class="text-lg text-gray-700 text-center leading-relaxed">
               Kami berkomitmen untuk memproses dan mengirim pesanan Anda dengan
               cepat tanpa mengorbankan kualitas produk.
@@ -702,7 +720,7 @@
                   class="w-10 h-10 bg-red-900/30 rounded-lg flex items-center justify-center"
                 >
                   <svg
-                    class="w-5 h-5 text-red-500 "
+                    class="w-5 h-5 text-red-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -715,10 +733,7 @@
                     ></path>
                   </svg>
                 </div>
-                <span
-                  class="text-gray-400 text-lg "
-                  >+62 853-7744-4108</span
-                >
+                <span class="text-gray-400 text-lg">+62 853-7744-4108</span>
               </a>
 
               <div class="flex items-center gap-3">
@@ -739,7 +754,9 @@
                     ></path>
                   </svg>
                 </div>
-                <span class="text-gray-400 text-lg">Pempektechi08@gmail.com</span>
+                <span class="text-gray-400 text-lg"
+                  >Pempektechi08@gmail.com</span
+                >
               </div>
             </div>
           </div>
@@ -796,44 +813,34 @@
     </footer>
 
     <script>
-      // Custom Cursor (Dibiarkan sama)
-
+      // Custom Cursor
       const cursor = document.querySelector(".custom-cursor");
-
       const cursorDot = document.querySelector(".cursor-dot");
 
       document.addEventListener("mousemove", (e) => {
         cursor.style.left = e.clientX + "px";
-
         cursor.style.top = e.clientY + "px";
-
         cursorDot.style.left = e.clientX + "px";
-
         cursorDot.style.top = e.clientY + "px";
       });
 
-      // Hover effect on interactive elements (Dibiarkan sama)
-
+      // Hover effect on interactive elements
       const hoverElements = document.querySelectorAll("a, button, img");
-
       hoverElements.forEach((el) => {
         el.addEventListener("mouseenter", () => {
           cursor.classList.add("hover");
         });
-
         el.addEventListener("mouseleave", () => {
           cursor.classList.remove("hover");
         });
       });
 
-      // Scroll Reveal Animation (Dibiarkan sama)
-
+      // Scroll Reveal Animation
       const reveals = document.querySelectorAll(".reveal");
 
       const revealOnScroll = () => {
         reveals.forEach((element) => {
           const elementTop = element.getBoundingClientRect().top;
-
           const windowHeight = window.innerHeight;
 
           if (elementTop < windowHeight - 100) {
@@ -843,20 +850,15 @@
       };
 
       window.addEventListener("scroll", revealOnScroll);
-
       revealOnScroll();
 
-      // Mobile Menu Functionality (Dibiarkan sama)
-
+      // Mobile Menu Functionality
       const mobileMenuButton = document.getElementById("mobile-menu-button");
-
       const mobileMenu = document.getElementById("mobile-menu");
 
       function toggleMobileMenu() {
         const isOpen = mobileMenu.classList.toggle("open");
-
         mobileMenuButton.classList.toggle("open");
-
         document.body.style.overflow = isOpen ? "hidden" : "auto";
       }
 
@@ -864,8 +866,7 @@
         mobileMenuButton.addEventListener("click", toggleMobileMenu);
       }
 
-      // Close mobile menu when a link is clicked (Dibiarkan sama)
-
+      // Close mobile menu when a link is clicked
       document.querySelectorAll("#mobile-menu a").forEach((link) => {
         link.addEventListener("click", () => {
           if (mobileMenu.classList.contains("open")) {
@@ -874,8 +875,7 @@
         });
       });
 
-      // Smooth scroll for anchor links (Dibiarkan sama)
-
+      // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -885,7 +885,6 @@
           if (target) {
             target.scrollIntoView({
               behavior: "smooth",
-
               block: "start",
             });
 
