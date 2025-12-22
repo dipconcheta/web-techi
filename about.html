@@ -14,7 +14,7 @@
       :root {
         --red-900: #7f1d1d;
         --red-700: #b91c1c;
-        --scroll-duration: 40s; /* Durasi gulir */
+        --scroll-duration: 40s;
       }
 
       * {
@@ -101,7 +101,7 @@
           transform: translateX(0);
         }
         100% {
-          transform: translateX(-2112px); /* Geser sejauh lebar 6 item */
+          transform: translateX(-2112px);
         }
       }
 
@@ -114,24 +114,19 @@
       .autoscroll-container {
         display: flex;
         flex-wrap: nowrap;
-        /* Gunakan max-content agar lebar menyesuaikan jumlah item secara otomatis */
         width: max-content;
         animation: autoscroll var(--scroll-duration) linear infinite;
         padding-top: 2rem;
         padding-bottom: 2rem;
       }
 
-      /* Bagian Pause saat Hover SUDAH DIHAPUS */
-
       .autoscroll-item {
         width: 320px;
         flex-shrink: 0;
-        margin-right: 2rem; /* 32px */
+        margin-right: 2rem;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -4px rgba(0, 0, 0, 0.1);
       }
-
-      /* END: PERBAIKAN MARQUEE */
 
       #mobile-menu {
         transition: transform 0.3s ease-in-out;
@@ -856,7 +851,6 @@
         cursorDot.style.top = e.clientY + "px";
       });
 
-      // Hover effect on interactive elements
       const hoverElements = document.querySelectorAll("a, button, img");
       hoverElements.forEach((el) => {
         el.addEventListener("mouseenter", () => {
